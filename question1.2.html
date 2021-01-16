@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>JaimeStream</title>
+    <title>SecondJaimeStream</title>
 
     <!-- Video.js Builds -->
     <link href="https://vjs.zencdn.net/7.4.1/video-js.min.css" rel="stylesheet">
@@ -22,17 +22,16 @@
     <center>
         <div>
             <video id=demoplayer width=512 height=288 class="video-js" controls autoplay muted>
-                <source src='http://vod-l3.delivery.streamroot.io/vodOrigin/tos1500.mp4/playlist.m3u8' type="application/x-mpegURL">
+                <source src='http://wowza-test-cloudfront.streamroot.io/vodOrigin/tos1500.mp4/playlist.m3u8' type="application/x-mpegURL">
             </video>
         </div>
         <div id="streamroot-graphs"></div>
     </center>
     <script>
+      function contentIdFn(contentUrl) {
     
-    function contentIdFn(contentUrl) {
-    
-    return "Jaime";
-    }
+      return "Jaime";
+      }
         var options = {
       html5: {
       hlsjsConfig: {
@@ -48,7 +47,7 @@
     },
   };
   var player = videojs('demoplayer', options);
-    </script>
+  </script>
 
 </body>
 ​
