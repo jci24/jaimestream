@@ -10,11 +10,32 @@
     <script src="https://vjs.zencdn.net/7.4.1/video.min.js"></script>
 
     <!-- Streamroot Builds -->
-    <script src="https://cdn.streamroot.io/videojs-hls-dna-plugin/1/stable/videojs-hls-dna-plugin.js#streamrootKey=eSDmDVhFEeuqEraN7zMJ0w.aTpmKaNf2dhEu1GaHJaTD8TgsEKIT0oRdYmYUtRthxftWkyyjznJfmDgym11aTpm"></script>
+    <script src="https://cdn.streamroot.io/videojs-hls-dna-plugin/1/stable/videojs-hls-dna-plugin.js#streamrootKey=da32565b-dd31-4ae8-9be7-951d6ca79621"></script>
     <script src="https://cdn.streamroot.io/videojs-hlsjs-plugin/1/stable/videojs-hlsjs-plugin.js"></script>
 
     <!-- Graphs -->
     <script src="https://tools.streamroot.io/usage-graphs/stable/graphs.js"></script>
+
+    <script>
+      var player;
+
+      function contentIdFn(contentUrl) {
+        return "Jaime";
+      }
+
+      function setuUpload() {
+        if(Streamroot.instances[0].dnaUploadEnabled){
+          Streamroot.instances[0].dnaUploadEnabled = false;
+          document.querySelector('#btnUpload').innerText = 'Start upload';
+        }else{
+          Streamroot.instances[0].dnaUploadEnabled = true;
+          document.querySelector('#btnUpload').innerText = 'Stop upload';
+        }
+        
+      }
+
+      
+    </script>
 </head>
 
 <body>
@@ -25,29 +46,27 @@
                 <source src='http://vod-l3.delivery.streamroot.io/vodOrigin/tos1500.mp4/playlist.m3u8' type="application/x-mpegURL">
             </video>
         </div>
+        <button id="btnUpload" onclick="setuUpload();">Stop upload</button>
         <div id="streamroot-graphs"></div>
     </center>
+    
+
     <script>
-    
-    function contentIdFn(contentUrl) {
-    
-    return "Jaime";
-    }
-        var options = {
-      html5: {
-      hlsjsConfig: {
-      "maxBufferSize": 0,
-      "maxBufferLength": 30,
-      "liveSyncDuration": 30,
-      "liveMaxLatencyDuration": Infinity
-      },
-    },
-    dnaConfig: {
-      
-      "contentIdGenerator" : contentIdFn,
-    },
-  };
-  var player = videojs('demoplayer', options);
+      var options = {
+        html5: {
+          hlsjsConfig: {
+            "maxBufferSize": 0,
+            "maxBufferLength": 30,
+            "liveSyncDuration": 0,
+            "liveMaxLatencyDuration": Infinity
+          },
+        },
+        dnaConfig: {
+        
+          //"contentIdGenerator" : contentIdFn,
+        },
+      };
+      player = videojs('demoplayer', options);
     </script>
 
 </body>

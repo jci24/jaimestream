@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <title>flowplayer 7.2.7 with flowplayer-hls-dna-plugin 1.1.12 from prod</title>
+    <!-- Flowplayer builds -->
+    <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/stable/style/flowplayer.css">
+    <script src="//cdn.flowplayer.com/releases/native/stable/flowplayer.min.js"></script>
+    <script src="//cdn.flowplayer.com/releases/native/stable/plugins/hls.min.js"></script>
+
+    <!-- Streamroot plugin -->
+    <script
+        src="lib/flowplayer-hls-dna-plugin.js?srKey=da32565b-dd31-4ae8-9be7-951d6ca79621">
+    </script>
+</head>
+
+<body>
+    <h1>flowplayer with flowplayer-hls-dna-plugin from prod</h1>
+    <div id="video" style="height:300px; width:600px"></div>
+
+    <script>
+        flowplayer("#video", {
+            token: 'eyJraWQiOiJQS2k0dGtTVTk5dVIiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJQS2k0dGtTVTk5dVJcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.mVn8MIpsHUC3UkUsDDP4cdKN-C_7XKsX0x8fT4SbmP1ONxiSnS_xB8TjKflA9pKFDFUXnfwjgLg9JZnBBmHO8w',
+            src: '//wowza-test-cloudfront.streamroot.io/liveOrigin/Sintel1/playlist.m3u8',
+            hls: {
+                maxBufferSize: 0,
+                maxBufferLength: 30,
+                liveSyncDuration: 30,
+            },
+            dnaConfig: {},
+            muted: true,
+        });
+    </script>
+
+    <!-- Public graphs -->
+    <div id="streamroot-graphs"></div>
+    <script src="https://tools.streamroot.io/usage-graphs/latest/graphs.js"></script>
+</body>
+
+</html>
